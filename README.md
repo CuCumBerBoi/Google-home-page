@@ -1,4 +1,4 @@
-# Google Home Page Clone
+# Google Home Page 
 
 This project is a visually accurate clone of the Google Home Page, built using HTML, CSS, and Vanilla JavaScript. It mimics the modern light theme design of Google.
 
