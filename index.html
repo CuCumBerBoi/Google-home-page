@@ -1,0 +1,83 @@
+<!DOCTYPE html> <!-- ประกาศชนิดของเอกสารว่าเป็น HTML5 -->
+<html lang="en"> <!-- เริ่มต้นแท็ก html และกำหนดภาษาเป็นภาษาอังกฤษ -->
+
+<head> <!-- ส่วนหัวของเอกสาร สำหรับเก็บ meta data และการเชื่อมต่อไฟล์ภายนอก -->
+    <meta charset="UTF-8"> <!-- กำหนดการเข้ารหัสตัวอักษรเป็น UTF-8 เพื่อรองรับภาษาต่างๆ รวมถึงภาษาไทย -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ตั้งค่า viewport ให้แสดงผลได้ดีบนมือถือ (responsive) -->
+    <title>Google</title> <!-- กำหนดชื่อแท็บของเว็บไซต์ -->
+    <link rel="stylesheet" href="style.css"> <!-- เชื่อมต่อไฟล์ CSS ภายนอกเพื่อกำหนดสไตล์ -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- ลิงก์เพื่อโหลดฟอนต์ไอคอน Material Icons -->
+</head> <!-- จบส่วนหัว -->
+
+<body> <!-- ส่วนเนื้อหาหลักเริ่มที่นี่ -->
+
+    <!-- Header --> <!-- คอมเมนต์: ส่วนหัวดานบน (Nav bar) -->
+    <header> <!-- แท็ก header สำหรับส่วนหัวเว็บ -->
+        <div class="nav-right"> <!-- สร้างกล่อง (div) สำหรับเมนูทางขวา -->
+            <a href="#">Gmail</a> <!-- ลิงก์ไปยัง Gmail -->
+            <a href="#">ค้นรูป</a> <!-- ลิงก์ไปยังค้นหารูปภาพ -->
+            <div class="app-icon" title="Google apps"> <!-- กล่องสำหรับไอคอนแอป Google -->
+                <span class="material-icons">apps</span> <!-- ไอคอน apps -->
+            </div>
+            <button class="sign-in-btn">เข้าสู่ระบบ</button> <!-- ปุ่มล็อกอิน -->
+        </div> <!-- ปิด div nav-right -->
+    </header> <!-- จบ header -->
+
+    <!-- Main Content --> <!-- คอมเมนต์: เนื้อหาหลัก -->
+    <main> <!-- แท็ก main สำหรับเนื้อหาหลัก -->
+        <div class="logo"> <!-- สร้างกล่องสำหรับโลโก้ -->
+            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+                alt="Google Logo"> <!-- รูปภาพโลโก้ Google -->
+        </div>
+
+        <div class="search-container"> <!-- กล่องใหญ่คลุมส่วนค้นหาทั้งหมด -->
+            <div class="search-bar"> <!-- กล่องช่องค้นหา -->
+                <span class="material-icons search-icon">search</span> <!-- ไอคอนค้นหา -->
+                <input type="text" id="search-input"> <!-- ช่องกรอกข้อความ -->
+                <div class="search-tools"> <!-- เครื่องมือเพิ่มเติมในช่องค้นหา -->
+                    <!-- ไอคอนไมค์ระบายสี -->
+                    <img class="mic-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Google_mic.svg/330px-Google_mic.svg.png"
+                        alt="Voice Search" title="Search by voice">
+                    <!-- ไอคอนกล้อง (Lens) -->
+                    <span class="material-icons cam-icon" title="Search by image">center_focus_strong</span>
+                </div>
+            </div>
+
+            <div class="buttons"> <!-- กลุ่มปุ่มกดใต้ช่องค้นหา -->
+                <button id="google-search-btn">ค้นหาด้วย Google</button> <!-- ปุ่มค้นหา Google -->
+                <button id="lucky-btn">ดีใจจัง ค้นแล้วเจอเลย</button> <!-- ปุ่ม I'm Feeling Lucky -->
+            </div>
+
+            <div class="language-offer"> <!-- ส่วนแสดงภาษาที่ Google รองรับ -->
+                แสดง Google ใน: <a href="#">ภาษาไทย</a>
+            </div>
+        </div>
+    </main> <!-- จบ main -->
+
+    <!-- Footer --> <!-- คอมเมนต์: ส่วนท้ายเว็บ -->
+    <footer> <!-- แท็ก footer -->
+        <div class="footer-upper"> <!-- ส่วนบนของ footer -->
+            <p>ไทย</p> <!-- ชื่อประเทศ -->
+        </div>
+        <div class="footer-lower"> <!-- ส่วนล่างของ footer -->
+            <div class="footer-left"> <!-- ลิงก์ทางซ้าย -->
+                <a href="#">เกี่ยวกับ</a>
+                <a href="#">โฆษณา</a>
+                <a href="#">ธุรกิจ</a>
+                <a href="#">วิธีการทำงานของ Search</a>
+            </div>
+            <div class="footer-right"> <!-- ลิงก์ทางขวา -->
+                <a href="#">ความเป็นส่วนตัว</a>
+                <a href="#">ข้อกำหนด</a>
+                <a href="#">ตั้งค่า</a>
+            </div>
+        </div>
+    </footer> <!-- จบ footer -->
+
+    <script src="script.js"></script> <!-- เชื่อมต่อไฟล์ Javascript -->
+</body>
+
+</html>

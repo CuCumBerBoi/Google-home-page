@@ -1,0 +1,346 @@
+/* Global Reset */
+* {
+    margin: 0;
+    /* ลบระยะห่างภายนอก */
+    padding: 0;
+    /* ลบระยะห่างภายใน */
+    box-sizing: border-box;
+    /* กำหนดการคำนวณขนาดกล่อง */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    /* ฟอนต์หลัก */
+    font-size: 14px;
+    /* ขนาดตัวอักษรปกติ */
+    color: #202124;
+    /* สีตัวอักษร (เกือบดำ) */
+    background-color: #ffffff;
+    /* พื้นหลังสีขาว (ธีมสว่าง) */
+    display: flex;
+    /* จัด layout ด้วย flex */
+    flex-direction: column;
+    /* เรียงแนวตั้ง */
+    height: 100vh;
+    /* เต็มความสูงหน้าจอ */
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: flex-end;
+    /* ชิดขวา */
+    padding: 20px;
+    /* ระยะห่างโดยรอบ */
+    align-items: center;
+    /* กึ่งกลางแนวตั้ง */
+    height: 60px;
+    /* ความสูง header */
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* ระยะห่างระหว่างไอเท็ม */
+}
+
+.nav-right a {
+    color: #202124;
+    /* สีลิงก์ */
+    text-decoration: none;
+    /* ไม่ขีดเส้นใต้ */
+    font-size: 13px;
+    /* ขนาดเล็ก */
+    line-height: 24px;
+}
+
+.nav-right a:hover {
+    text-decoration: underline;
+    /* ขีดเส้นใต้เมื่อชี้ */
+}
+
+.app-icon {
+    color: #5f6368;
+    /* สีไอคอน */
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+}
+
+.app-icon:hover {
+    background-color: rgba(60, 64, 67, 0.08);
+    /* พื้นหลังจางๆ เมื่อชี้ */
+}
+
+.sign-in-btn {
+    background-color: #1a73e8;
+    /* สีปุ่มน้ำเงิน */
+    color: white;
+    /* ตัวอักษรขาว */
+    border: none;
+    padding: 8px 24px;
+    /* ขนาดปุ่ม */
+    border-radius: 18px;
+    /* มุมมนตามแบบใหม่ */
+    font-family: Google Sans, Roboto, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-left: 8px;
+    position: relative;
+    /* เพื่อให้ element ลูก (::before) อ้างอิงตำแหน่งได้ */
+    overflow: hidden;
+    /* ตัดส่วนที่เกินขอบออก */
+    z-index: 1;
+    /* จัดลำดับชั้น */
+}
+
+/* สร้าง Layer ซ้อนทับสำหรับทำ Effect ตามแบบ Google */
+.sign-in-btn::before {
+    content: "";
+    /* เนื้อหาว่างเปล่า จำเป็นสำหรับ pseudo-element */
+    position: absolute;
+    /* จัดตำแหน่งแบบสัมบูรณ์เทียบกับปุ่ม */
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* กว้างเต็มปุ่ม */
+    height: 100%;
+    /* สูงเต็มปุ่ม */
+    opacity: 0;
+    /* เริ่มต้นซ่อนไว้ (โปร่งใส) */
+    background-color: #001d35;
+    /* สีเลเยอร์คล้ำๆ ตามโค้ดต้นฉบับ */
+    transition: opacity .5s ease-out;
+    /* ภาพเคลื่อนไหวเวลาเปลี่ยนค่า opacity (ครึ่งวินาที) */
+    z-index: -1;
+    /* ให้เลเยอร์นี้อยู่หลังตัวหนังสือแต่อยู่บนพื้นหลังปุ่ม */
+}
+
+.sign-in-btn:hover {
+    box-shadow: 0 1px 2px rgba(66, 133, 244, 0.3), 0 1px 3px 1px rgba(66, 133, 244, 0.15);
+    /* เงาเมื่อชี้ */
+}
+
+.sign-in-btn:hover::before {
+    opacity: 0.08;
+    /* เมื่อชี้ ให้เลเยอร์สีเข้มจางๆ ปรากฏขึ้น (8%) */
+}
+
+/* Main Content */
+main {
+    flex-grow: 1;
+    /* ขยายเต็มพื้นที่ */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* ไม่ใช้ justify-center เพื่อให้ตำแหน่ง logos ค่อนไปทางบนตามสไตล์ Google */
+    padding-top: 100px;
+}
+
+.logo img {
+    height: 92px;
+    /* ขนาดโลโก้ */
+    margin-bottom: 20px;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 584px;
+    /* ความกว้างมาตรฐาน */
+    height: 46px;
+    border: 1px solid #dfe1e5;
+    /* ขอบสีเทาอ่อน */
+    border-radius: 24px;
+    /* ทรงแคปซูล */
+    padding: 0 14px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+.search-bar:hover,
+.search-bar:focus-within {
+    background-color: #fff;
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+    /* เงาเมื่อใช้งาน */
+    border-color: rgba(223, 225, 229, 0);
+    /* ซ่อนขอบเดิม */
+}
+
+.search-icon {
+    color: #9aa0a6;
+    /* สีไอคอนค้นหา */
+    padding-right: 12px;
+    font-size: 20px;
+}
+
+.search-bar input {
+    flex-grow: 1;
+    /* ยืดเต็มพื้นที่ */
+    border: none;
+    outline: none;
+    font-size: 16px;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.search-tools {
+    display: flex;
+    align-items: center;
+}
+
+.mic-icon {
+    height: 20px;
+    /* ขนาดไอคอนไมค์ */
+    width: 16px;
+    cursor: pointer;
+    margin-right: 24px;
+}
+
+.cam-icon {
+    color: #4285f4;
+    /* สีของ Lens */
+    /* หรือใช้รูปภาพจริงแทน */
+    background: url('https://www.gstatic.com/images/branding/googlemic/2x/googlemic_clr_24px.png') no-repeat center;
+    /* สมมติเป็นรูป placeholder หรือใช้ material icon */
+    /* แต่เราใช้ material icon 'center_focus_strong' ที่คล้าย Lens */
+    background: none;
+    color: #5f6368;
+    /* สีไอคอนทั่วไป */
+    cursor: pointer;
+    font-size: 24px;
+}
+
+/* ปุ่ม Lens สีรุ้งเหมือนจริงยากถ้าใช้แค่ CSS/Material Icon ธรรมดา ใช้สีเทาหรือน้ำเงินไปก่อน */
+.cam-icon:hover {
+    color: #1a73e8;
+}
+
+
+.buttons {
+    margin-top: 30px;
+    /* ระยะห่างจาก search bar */
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.buttons button {
+    background-color: #f8f9fa;
+    /* สีพื้นปุ่มเทาอ่อน */
+    border: 1px solid #f8f9fa;
+    border-radius: 4px;
+    color: #3c4043;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 0 16px;
+    height: 36px;
+    min-width: 54px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    background-color: #f8f9fa;
+    border: 1px solid #dadce0;
+    /* ขอบเข้มขึ้นเมื่อชี้ */
+    color: #202124;
+}
+
+.language-offer {
+    margin-top: 25px;
+    /* ระยะห่าง */
+    font-size: 13px;
+    color: #3c4043;
+}
+
+.language-offer a {
+    color: #1a0dab;
+    /* สีลิงก์น้ำเงินเข้ม */
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.language-offer a:hover {
+    text-decoration: underline;
+}
+
+
+/* Footer */
+footer {
+    background-color: #f2f2f2;
+    /* พื้นหลัง footer */
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    /* ดันลงล่างสุดถ้าเนื้อหาน้อย */
+}
+
+.footer-upper {
+    padding: 15px 30px;
+    border-bottom: 1px solid #dadce0;
+    color: #70757a;
+    font-size: 15px;
+    background-color: #f2f2f2;
+}
+
+.footer-lower {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    flex-wrap: wrap;
+    background-color: #f2f2f2;
+}
+
+.footer-left,
+.footer-right {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-lower a {
+    color: #70757a;
+    text-decoration: none;
+    margin-right: 30px;
+    font-size: 14px;
+}
+
+.footer-right a {
+    margin-right: 0;
+    margin-left: 30px;
+}
+
+.footer-lower a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media screen and (max-width: 720px) {
+    .footer-lower {
+        justify-content: center;
+    }
+
+    .footer-left,
+    .footer-right {
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .footer-right a {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}
